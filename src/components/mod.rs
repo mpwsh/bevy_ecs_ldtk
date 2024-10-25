@@ -18,7 +18,7 @@ use crate::{
     utils::ldtk_grid_coords_to_grid_coords,
 };
 use bevy::prelude::*;
-
+use serde::{Deserialize, Serialize};
 use std::ops::{Add, AddAssign, Mul, MulAssign, Sub, SubAssign};
 
 #[allow(unused_imports)]
@@ -80,7 +80,7 @@ impl Worldly {
 /// is updated, nor visa versa.
 /// This is left up to the user since there are plenty of scenarios where this behavior needs to be
 /// custom.
-#[derive(Copy, Clone, Eq, PartialEq, Debug, Default, Hash, Component, Reflect)]
+#[derive(Copy, Clone, Eq, PartialEq, Debug, Default, Hash, Deserialize, Serialize, Component, Reflect)]
 #[reflect(Component)]
 pub struct GridCoords {
     pub x: i32,
